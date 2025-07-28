@@ -39,7 +39,7 @@ pipeline {
 
         stage('Deploy to EC2') {
             steps {
-                sshagent(['your-ssh-key-id']) {
+                sshagent(['ec2']) {
                 sh '''
                 ssh -o StrictHostKeyChecking=no ubuntu@18.208.179.64 <<EOF
                 docker pull xeeshanakram/todo-flask-app:latest

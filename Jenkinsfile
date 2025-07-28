@@ -34,7 +34,7 @@ pipeline {
                       sh "docker push xeeshanakram/${IMAGE_NAME}:latest "
                     }
                 }
-            }1
+            }
         }
 
         stage('Deploy to EC2') {

@@ -1,8 +1,6 @@
 from flask import Flask, request, render_template, redirect
-from prometheus_flask_exporter import PrometheusMetrics
 
 app = Flask(__name__)
-metrics = PrometheusMetrics(app)
 
 tasks = []
 

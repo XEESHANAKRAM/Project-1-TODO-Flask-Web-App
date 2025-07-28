@@ -39,16 +39,17 @@ pipeline {
 
         stage('Deploy to EC2') {
             steps {
-                sshagent(['ec2']) {
-                    sh '''
-                        ssh -o StrictHostKeyChecking=no ubuntu@18.208.179.64 <<EOF
-                        docker pull xeeshanakram/todo-flask-app:latest
-                        docker rm -f todo-flask-app || true
-                        docker run -d --name todo-flask-app -p 5000:5000 xeeshanakram/todo-flask-app:tagname
-                        EOF
-                    '''
-                }
-            }
+                sshagent(['your-ssh-key-id']) {
+                sh '''
+                ssh -o StrictHostKeyChecking=no ubuntu@18.208.179.64 <<EOF
+                docker pull xeeshanakram/todo-flask-app:latest
+                docker rm -f todo-flask-app || true
+                docker run -d --name todo-flask-app -p 5000:5000 xeeshanakram/todo-flask-app:latest
+EOF
+            '''
         }
+    }
+}
+
     }
 }

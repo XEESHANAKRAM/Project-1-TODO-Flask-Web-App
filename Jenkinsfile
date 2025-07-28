@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git 'https://github.com/XEESHANAKRAM/Project-1-TODO-Flask-Web-App.git'
+                git branch: 'main', url: 'https://github.com/XEESHANAKRAM/Project-1-TODO-Flask-Web-App.git'
             }
         }
 

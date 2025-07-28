@@ -41,7 +41,7 @@ pipeline {
             steps {
                 sshagent(['ec2']) {
                     sh '''
-                        ssh -o StrictHostKeyChecking=no ubuntu@34.228.16.64 "
+                        ssh -o StrictHostKeyChecking=no ubuntu@3.81.83.4 "
                             docker pull $DOCKERHUB_USERNAME/todo-flask-app &&
                             docker rm -f todo-flask-app || true &&
                             docker run -d --name todo-flask-app -p 5000:5000 $DOCKERHUB_USERNAME/todo-flask-app
